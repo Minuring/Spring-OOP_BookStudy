@@ -1,64 +1,39 @@
 /*
-todo
-예시 변경하기
-
-Book 클래스 : 책과 관련된 정보
-책에 관한 정보와 Print 기능을 책임짐. (두 가지의 액터. 클래스 변경 요인이 책과 프린트)
-Print 기능이 확장될 경우 Book클래스를 수정해야함
-== Print 기능의 확장에 닫혀있음 (ORP까지 위반)
+Person 클래스는 말하기, 출근하기, 사격하기, 데이트하기의
+여러가지 책임을 지고있다.
+군인의 수정사항, 직장. 일에서의 수정사항, 연인에서의 수정사항이 있을 때
+모두 Person클래스를 수정하게 된다.
  */
-public class Book {
-    public String getTitle() {
-        return "A Great Book";
-    }
-
-    public String getAuthor() {
-        return "John Doe";
-    }
-
-    public void printCurrentPage() {
-        System.out.println("current page content");
-        //html 프린터를 넣고자 한다.
-    }
+class Person {
+    void 말하기(){};
+    void 출근하기(){};
+    void 사격하기(){};
+    void 데이트하기(){};
 }
+
 /*
-Book 클래스의 책임을 나눈다.
-이제 다양한 출력 옵션이 생겨도 Book 클래스를 수정할 필요가 없어진다.
-Printer 인터페이스를 각기 다르게 구현하면 되기때문
+Person의 책임을 분리한다.
+Worker는 일과 관련된 이유로만 Worker클래스를 수정하게되고,
+Soldier는 사격하기, Boyfriend는 데이트하기의 책임만을 진다.
  */
-public class Book {
 
-    public String getTitle() {
-        return "A Great Book";
+abstract class Person {
+    void 말하기(){
+        // Speaking
     }
-
-    public String getAuthor() {
-        return "John Doe";
-    }
-
-    public void getCurrentPage() {
-        System.out.println("current page content");
-    }
-
 }
-
-public interface Printer {
-    void printPage();
-}
-
-public class PlainTextPrinter implements Printer {
-
-    public void printPage() {
-        System.out.println("this is plain text printer");
+class Worker extends Person {
+    void 일하기(){
+        //일
     }
-
 }
-
-public class HtmlPrinter implements Printer {
-
-    public void printPage() {
-        System.out.println("this is html printer");
+class Solider extends Person {
+    void 사격하기(){
+        //사격
+    };
+}
+class Boyfriend extends Person {
+    void 데이트하기(){
+        //데이트
     }
-
 }
-
