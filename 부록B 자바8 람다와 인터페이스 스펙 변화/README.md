@@ -7,6 +7,7 @@
 
 - **람다를 지원하기 위한 인터페이스를 함수형 인터페이스라고 한다.**
 
+
 ### 2. 람다란 무엇인가?
 
 - 람다란 한 마디로 **코드 블럭**이다.
@@ -14,6 +15,7 @@
 - **람다를 통해 코드 블럭을 변수처럼 사용할 수 있다.**
 <pre>Runnable r = () -> System.out.println("Hello Lambda!");
 </pre>
+
 
 ### 3. 함수형 인터페이스
 
@@ -41,6 +43,7 @@ interface ExampleInterface{
 
 <pre>doIt( a -> a * a );</pre>
 
+
 ### 5. 메서드 반환값으로 람다 사용
 
 <pre>ExampleInterface ei = todo();
@@ -50,10 +53,12 @@ public static ExampleInterface todo(){
 }
 </pre>
 
+
 ### 6. 자바8 API에서 제공하는 함수형 인터페이스
 
 - java.util.function 패키지 등에서 많이 쓰일 것으로 예상되는 함수형 인터페이스를 이미 만들어둠.
 ![img_1.png](img_1.png)
+
 
 ### 7. 컬렉션 스트림에서 람다 사용
 
